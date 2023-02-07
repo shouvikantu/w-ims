@@ -4,6 +4,12 @@ You can find how to start and run the program from the text below. Let's not put
 
 Run 'npm install' after cloning the repo and it will install all the packages I install on my system. Oh. to run the npm commands, please download NODEJS on your system. Tailwindcss has been installed and I would like you guys to give it a try since it's convenient. 
 
+For faster development, consider downloading the following extensions for VS Code: 
+1. Enable emmet to get auto completion. Go to setting, search emmet and add an item for emmet. should look like: "javascript :  reactjavascript
+2. ES7+ React/Redux/React-Native snippets by dsznajder - If you write rafce in your .js file, it will add a functional component
+3. TailwindCSS intellisence. It gives suggestions and autocompletion for tailwindcss
+4. Prettier -  Makes your code well-formatted and "beautiful😂"
+
 ___
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
