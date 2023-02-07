@@ -1,3 +1,11 @@
+## General Notes/ Best practices
+
+You can find how to start and run the program from the text below. Let's not put anything in the index.js file but just the components. If you look at the components folder, you'll see I made a Header.js file and I've added it to the index.js file. This makes organizing way easier and the code looks cleaner as well. 
+
+Run 'npm install' after cloning the repo and it will install all the packages I install on my system. Oh. to run the npm commands, please download NODEJS on your system. Tailwindcss has been installed and I would like you guys to give it a try since it's convenient. 
+
+___
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
