@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Header from '@/components/Header'
+import EventCreation from '@/components/EventCreation'
 
 
 
@@ -14,6 +15,7 @@ export default function Home() {
       </Head>
       <div className='text-amber-800'>
         <Header />
+        <EventCreation />
       </div>
     </>
   )
