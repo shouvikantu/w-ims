@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { collection, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase";
-import EventRegistration from "@/components/Registration";
+
 import Link from "next/link";
 
 const eventsRef = collection(db, "events");
@@ -46,7 +46,7 @@ function EventListing() {
         <p className="text-gray-500">No upcoming events.</p>
       )}
 
-      <EventRegistration />
+
     </div>
   );
 }

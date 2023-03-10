@@ -1,4 +1,4 @@
-import { collection } from 'firebase/firestore';
+import { addDoc, collection, doc } from 'firebase/firestore';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { db } from '../../../firebase';
@@ -11,14 +11,16 @@ function RegisterEvent() {
   const [email, setEmail] = useState('');
 
   const handleSubmit = async (e) => {
+    console.log(eventId)
+    const eventData = {
+        name,
+        email,
+    };
     e.preventDefault();
 
     try {
-      const eventRef = collection(db,'events').doc(eventId);
-      await eventRef.collection('registrations').add({
-        name,
-        email,
-      });
+        const eventRef = doc(db, "events" , eventId)
+        await addDoc(eventRef, eventData)
       alert('Registration successful!');
       setName('');
       setEmail('');
