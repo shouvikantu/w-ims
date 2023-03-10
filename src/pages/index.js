@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Header from '@/components/Header'
 import EventCreation from '@/components/EventCreation'
+import Login from '@/components/Login'
 
 
 
@@ -14,8 +15,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className='text-amber-800'>
-        <Header />
-        <EventCreation />
+        <Login />
+        {/* <Header />
+        <EventCreation /> */}
       </div>
     </>
   )
