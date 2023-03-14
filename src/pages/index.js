@@ -2,17 +2,27 @@ import Head from "next/head";
 import Header from "@/components/Header";
 import EventCreation from "@/components/EventCreation";
 import Login from "@/components/Login";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Home() {
   const [user, setUser] = useState(null);
 
+  // Load user from localStorage on component mount
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
+
   const handleLogin = (userData) => {
     setUser(userData);
+    localStorage.setItem("user", JSON.stringify(userData)); // Store user in localStorage
   };
 
   const handleLogout = () => {
     setUser(null);
+    localStorage.removeItem("user"); // Remove user from localStorage on logout
   };
 
   return (

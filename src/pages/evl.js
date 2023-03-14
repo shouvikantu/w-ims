@@ -23,21 +23,24 @@ function EventListing() {
   }, []);
 
   return (
-    <div>
-      <Header />
-      <div className="bg-gray-800 p-4 rounded-lg shadow-lg h-screen">
-  <h1 className="text-2xl font-bold text-white mb-4">Upcoming Events</h1>
+    <>    
+  <div className="bg-container2 min-h-screen rounded-lg shadow-lg">
+    <Header />
+    <div className="px-4">
+
+    
+  <h1 className="text-3xl font-bold text-white mb-4 lg:mb-6">Upcoming Events</h1>
   {events.length > 0 ? (
-    <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 justify-center">
+    <ul className="grid grid-cols-1 lg:grid-cols-2 gap-6">
       {events.map((event) => (
-        <li key={event.id} className="bg-gray-900 rounded-lg shadow-lg p-4 h-[150px] w-[400px]">
-          <h2 className="text-lg font-bold text-white">{event.eventName}</h2>
-          <p className="text-gray-400">
+        <li key={event.id} className="bg-gray-900 bg-opacity-80 rounded-lg shadow-lg p-4 lg:p-6 ">
+          <h2 className="text-xl font-bold text-white mb-2">{event.eventName}</h2>
+          <p className="text-gray-400 mb-2">
             {event.eventDate} at {event.time}
           </p>
-          <p className="text-gray-400">{event.eventLocation}</p>
-          <p className="mt-2 text-gray-300">{event.eventDescription}</p>
-          <Link href={`/registration/${event.id}`} className="text-blue-500 hover:text-blue-300">
+          <p className="text-gray-400 mb-4 lg:mb-6">{event.eventLocation}</p>
+          <p className="text-gray-300">{event.eventDescription}</p>
+          <Link href={`/registration/${event.id}`} className="inline-block mt-4 text-blue-500 hover:text-blue-300">
             Register for this event
           </Link>
         </li>
@@ -46,11 +49,13 @@ function EventListing() {
   ) : (
     <p className="text-gray-400">No upcoming events.</p>
   )}
+  </div>
 </div>
+</>
 
-    </div>
 
   );
 }
+
 
 export default EventListing;
