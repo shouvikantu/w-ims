@@ -28,7 +28,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>ITS</title>
+        <title>W-IMS</title>
         <meta
           name="description"
           content="A tracking & Management system for Willamette University's intramural Program"
