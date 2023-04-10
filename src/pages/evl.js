@@ -36,7 +36,7 @@ function EventListing() {
         <li key={event.id} className="bg-gray-900 bg-opacity-80 rounded-lg shadow-lg p-4 lg:p-6 ">
           <h2 className="text-xl font-bold text-white mb-2">{event.eventName}</h2>
           <p className="text-gray-400 mb-2">
-            {event.eventDate} at {event.time}
+            {event.eventDate} at {event.eventTime}
           </p>
           <p className="text-gray-400 mb-4 lg:mb-6">{event.eventLocation}</p>
           <p className="text-gray-300">{event.eventDescription}</p>
