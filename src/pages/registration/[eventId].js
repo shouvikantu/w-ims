@@ -9,6 +9,9 @@ function RegisterEvent() {
     const {eventId}  = router.query;
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [tel, setTel] = useState('');
+  const [pronoun, setPronoun] = useState('');
+  const [dob, setDoB] = useState('');
 
   const handleSubmit = async (e) => {
     console.log(eventId)
@@ -26,10 +29,13 @@ function RegisterEvent() {
       const subcollectionRef = collection(eventRef, 'registrations');
 
       // Add the registration data to the subcollection
-      await addDoc(subcollectionRef, { name, email });
+      await addDoc(subcollectionRef, { name, email, tel, pronoun, dob });
       alert('Registration successful!');
       setName('');
       setEmail('');
+      setTel('');
+      setDoB('');
+      setPronoun('');
     } catch (error) {
       console.error(error);
       alert('Registration failed. Please try again.');
@@ -37,8 +43,8 @@ function RegisterEvent() {
   };
 
   return (
-    <div className="bg-gray-100 py-6">
-      <div className="max-w-md mx-auto bg-white rounded-md overflow-hidden shadow-md">
+    <div className="bg-gray-200 py-6 h-screen">
+      <div className="max-w-md sm:mx-auto bg-white rounded-md overflow-hidden shadow-md mx-2">
         <div className="py-4 px-6 bg-gray-800 text-white font-semibold uppercase tracking-wide">
           Register for Event
         </div>
@@ -67,6 +73,45 @@ function RegisterEvent() {
                 onChange={(e) => setEmail(e.target.value)}
                 className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 placeholder="Enter your email"
+                required
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-gray-700 font-semibold mb-2">
+                Phone 
+              </label>
+              <input
+                type="tel"
+                value={tel}
+                onChange={(e) => setTel(e.target.value)}
+                className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                placeholder="Enter your phone number"
+                required
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-gray-700 font-semibold mb-2">
+                Pronouns 
+              </label>
+              <input
+                type="text"
+                value={pronoun}
+                onChange={(e) => setPronoun(e.target.value)}
+                className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                placeholder="Pronoun"
+                required
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-gray-700 font-semibold mb-2">
+                Date of Birth 
+              </label>
+              <input
+                type="date"
+                value={dob}
+                onChange={(e) => setDoB(e.target.value)}
+                className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                placeholder="(mm/dd/year)"
                 required
               />
             </div>
