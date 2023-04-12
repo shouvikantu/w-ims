@@ -19,8 +19,14 @@ function RegisterEvent() {
     e.preventDefault();
 
     try {
-        const eventRef = doc(db, "events" , eventId)
-        await addDoc(eventRef, eventData)
+      // Create a reference to the event document
+      const eventRef = doc(db, 'events', eventId);
+
+      // Create a reference to the subcollection within the event document
+      const subcollectionRef = collection(eventRef, 'registrations');
+
+      // Add the registration data to the subcollection
+      await addDoc(subcollectionRef, { name, email });
       alert('Registration successful!');
       setName('');
       setEmail('');
