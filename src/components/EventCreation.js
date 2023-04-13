@@ -98,7 +98,7 @@ const EventCreation = () => {
             <div>
               <button
                 type="button"
-                className=" bg-green-600 text-white font-bold py-2 px-4 rounded"
+                className=" bg-[#b4bc14] text-white font-bold py-2 px-4 rounded"
                 onClick={handleSubmit}
               >
                 Create Event

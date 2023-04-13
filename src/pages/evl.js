@@ -23,36 +23,34 @@ function EventListing() {
   }, []);
 
   return (
-    <>    
-  <div className=" min-h-screen rounded-lg shadow-lg">
+    <div className="bg-container min-h-screen text-center">
     <Header />
-    <div className="px-4">
-
+    <div className=" flex flex-col justify-center items-center min-h-screen rounded-lg shadow-lg">
     
-  <h1 className="text-3xl font-bold text-white mb-4 lg:mb-6">Upcoming Events</h1>
-  {events.length > 0 ? (
-    <ul className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-      {events.map((event) => (
-        <li key={event.id} className="bg-gray-900 bg-opacity-80 rounded-lg shadow-lg p-4 lg:p-6 ">
-          <h2 className="text-xl font-bold text-white mb-2">{event.eventName}</h2>
-          <p className="text-gray-400 mb-2">
-            {event.eventDate} at {event.time}
-          </p>
-          <p className="text-gray-400 mb-4 lg:mb-6">{event.eventLocation}</p>
-          <p className="text-gray-300">{event.eventDescription}</p>
-          <Link href={`/registration/${event.id}`} className="inline-block mt-4 text-blue-500 hover:text-blue-300">
-            Register for this event
-          </Link>
-        </li>
-      ))}
-    </ul>
-  ) : (
-    <p className="text-gray-400">No upcoming events.</p>
-  )}
-  </div>
+    <div className="px-4">
+      <h1 className="text-3xl font-bold text-white  mb-4 lg:mb-6">Upcoming Events</h1>
+      {events.length > 0 ? (
+        <ul className="flex flex-wrap justify-center gap-6">
+          {events.map((event) => (
+            <li key={event.id} className="bg-opacity-80 rounded-lg shadow-lg p-4 w-[300px] lg:p-6 bg-gray border-2">
+              <h2 className="text-xl font-bold text-white mb-2">{event.eventName}</h2>
+              <p className="text-gray-400 mb-2">
+                {event.eventDate} at {event.time}
+              </p>
+              <p className="text-gray-400 mb-4 lg:mb-6">{event.eventLocation}</p>
+              <p className="text-gray-300">{event.eventDescription}</p>
+              <Link href={`/registration/${event.id}`} className="inline-block mt-4 p-2 bg-blue-500 text-white font-bold py-2 px-4 rounded">
+                Register for this event
+              </Link>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="text-gray-400">No upcoming events.</p>
+      )}
+    </div>
 </div>
-</>
-
+</div>
 
   );
 }
