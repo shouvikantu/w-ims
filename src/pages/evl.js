@@ -24,7 +24,7 @@ function EventListing() {
 
   return (
     <>    
-  <div className="bg-container2 min-h-screen rounded-lg shadow-lg">
+  <div className=" min-h-screen rounded-lg shadow-lg">
     <Header />
     <div className="px-4">
 

@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../firebase";
+import Header from "./Header";
 
 const EventCreation = () => {
   const [eventName, setEventName] = useState("");
@@ -9,6 +10,7 @@ const EventCreation = () => {
   const [eventDescription, setEventDescription] = useState("");
 
   const eventsRef = collection(db, "events");
+ 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,7 +36,7 @@ const EventCreation = () => {
   };
 
   return (
-    <div className="h-screen bg-cover bg-center bg-container1">
+    <div className="h-screen bg-cover bg-center">
       <div className=" px-4 py-8 md:py-12 lg:py-16">
         <div className="max-w-lg mx-auto bg-gray-900 p-4 rounded-lg shadow-lg">
           <h1 className="text-2xl text-center font-bold mb-4 text-white">
