@@ -38,7 +38,7 @@ const EventCreation = () => {
   return (
     <div className="h-screen bg-cover bg-center">
       <div className=" px-4 py-8 md:py-12 lg:py-16">
-        <div className="max-w-lg mx-auto bg-gray-900 p-4 rounded-lg shadow-lg">
+        <div className="max-w-lg mx-auto border-2 p-4 rounded-lg shadow-lg">
           <h1 className="text-2xl text-center font-bold mb-4 text-white">
             Create a new event
           </h1>
@@ -98,7 +98,7 @@ const EventCreation = () => {
             <div>
               <button
                 type="button"
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                className=" bg-green-600 text-white font-bold py-2 px-4 rounded"
                 onClick={handleSubmit}
               >
                 Create Event

@@ -38,7 +38,7 @@ export default function Home() {
       </Head>
       <div className="text-amber-800">
         {user ? (
-          <div>
+          <div className="bg-container max-h-screen">
             <Header onLogout={handleLogout} />
             <EventCreation />
           </div>

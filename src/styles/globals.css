@@ -7,8 +7,10 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  overflow: hidden !important;
+  max-height: screen;
 }
-.bg-container1 {
+/* .bg-container1 {
   background-image: url("../components/assets/bg1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -19,4 +21,4 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-}
+} */

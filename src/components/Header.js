@@ -3,7 +3,7 @@ import React from "react";
 
 const Header = ({ user, onLogout }) => {
   return (
-    <header className="bg-transparent  text-black border-b-2">
+    <header className="bg-transparent  text-white border-b-2">
       <div className="container mx-auto md:px-4 px-1 py-4 flex justify-between items-center">
         <div className="flex items-center w-1/3 ml-8">
           <a href="/" className="font-bold text-sm md:text-xl text-center">
@@ -15,12 +15,12 @@ const Header = ({ user, onLogout }) => {
             <>
               <button
                 onClick={onLogout}
-                className="bg-red-500 hover:bg-red-700 text-black font-bold py-2 px-4 rounded"
+                className="bg-[#E4854E] hover:bg-[#301D19] text-white font-bold py-2 px-4 rounded"
               >
                 Logout
               </button>
               <Link
-                className="md:px-4 mx-2 md:py-2  text-black font-semibold rounded-full p-1 text-center"
+                className="md:px-4 mx-2 md:py-2  text-white font-semibold rounded-full p-1 text-center"
                 href="/evl"
               >
                 {" "}
@@ -29,7 +29,7 @@ const Header = ({ user, onLogout }) => {
             </>
           ) : (
             <Link
-              className="md:px-4 mx-2 md:py-2  text-black font-semibold rounded-full p-1 text-center"
+              className="md:px-4 mx-2 md:py-2  text-white font-semibold rounded-full p-1 text-center"
               href="/login"
             >
               {" "}
