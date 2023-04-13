@@ -7,7 +7,7 @@ import Header from "@/components/Header";
 
 const eventsRef = collection(db, "events");
 
-function EventListing() {
+function EventListing({onLogout}) {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ function EventListing() {
 
   return (
     <div className="bg-container min-h-screen text-center">
-    <Header />
+    <Header onClick={onLogout} />
     <div className=" flex flex-col justify-center items-center min-h-screen rounded-lg shadow-lg">
     
     <div className="px-4">

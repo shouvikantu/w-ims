@@ -18,6 +18,9 @@ function RegisterEvent() {
     const eventData = {
         name,
         email,
+        tel, 
+        pronoun, 
+        dob
     };
     e.preventDefault();
 
@@ -43,7 +46,7 @@ function RegisterEvent() {
   };
 
   return (
-    <div className="bg-gray-200 py-6 h-screen">
+    <div className="bg-gray-200 py-6 h-screen bg-container">
       <div className="max-w-md sm:mx-auto bg-white rounded-md overflow-hidden shadow-md mx-2">
         <div className="py-4 px-6 bg-gray-800 text-white font-semibold uppercase tracking-wide">
           Register for Event

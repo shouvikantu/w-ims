@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../firebase";
-import Header from "./Header";
+
 
 const EventCreation = () => {
   const [eventName, setEventName] = useState("");
