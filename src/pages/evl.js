@@ -52,7 +52,7 @@ function EventListing({onLogout}) {
         
         
       ) : (
-        <p className="text-black bg-white opacity-90 p-4">No upcoming events.</p>
+        <p className="text-black bg-white opacity-90 p-4 ">No upcoming events.</p>
       )}
     </div>
 </div>
