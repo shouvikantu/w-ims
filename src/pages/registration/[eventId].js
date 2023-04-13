@@ -2,6 +2,7 @@ import { addDoc, collection, doc } from 'firebase/firestore';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { db } from '../../../firebase';
+import Header from '@/components/Header';
 
 
 function RegisterEvent() {
@@ -40,13 +41,14 @@ function RegisterEvent() {
       setDoB('');
       setPronoun('');
     } catch (error) {
-      console.error(error);
-      alert('Registration failed. Please try again.');
+      alert('Registration failed. Refresh the page & Please try again.');
     }
   };
 
   return (
-    <div className="bg-gray-200 py-6 h-screen bg-container">
+    <div className='bg-container h-screen'>
+        <Header />
+      <div className=" py-6  ">
       <div className="max-w-md sm:mx-auto bg-white rounded-md overflow-hidden shadow-md mx-2">
         <div className="py-4 px-6 bg-gray-800 text-white font-semibold uppercase tracking-wide">
           Register for Event
@@ -130,6 +132,8 @@ function RegisterEvent() {
         </div>
       </div>
     </div>
+    </div>
+    
   );
 }
 
