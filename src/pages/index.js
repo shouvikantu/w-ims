@@ -6,7 +6,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 
 
-export default function Home() {
+export default function Home({user}) {
   const eventsRef = collection(db, "events");
 
   const [events, setEvents] = useState([]);
@@ -35,7 +35,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="bg-container md:h-screen">
-        <Header />
+        <Header user={user}/>
       <div className=" text-center">   
       <div className=" flex flex-col justify-center items-center min-h-screen rounded-lg shadow-lg">
         <div className="px-4">

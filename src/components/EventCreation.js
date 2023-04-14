@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import Header from "./Header";
 
-const EventCreation = ({onLogout, user}) => {
+const EventCreation = ({ user}) => {
   const [eventName, setEventName] = useState("");
   const [eventDate, setEventDate] = useState("");
   const [eventLocation, setEventLocation] = useState("");
@@ -98,7 +98,7 @@ const EventCreation = ({onLogout, user}) => {
               <div>
                 <button
                   type="button"
-                  className=" bg-[#b4bc14] text-white font-bold py-2 px-4 rounded"
+                  className=" bg-blue-500 text-white justify-end font-bold py-2 px-4 rounded"
                   onClick={handleSubmit}
                 >
                   Create Event

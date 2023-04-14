@@ -11,23 +11,31 @@ const Header = ({ user }) => {
             Willamette University Intramurals
           </Link>
         </div>
+        <div>
+        
         {!user && (
           <a
             href="/login"
-            className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+            className="bg-blue-500 text-white font-bold py-2 px-4 rounded"
           >
             Staff Login
           </a>
         )}
 
         {user && (
+          <>
           <button
             onClick={() => auth.signOut()}
-            className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+            className="bg-red-500 text-white font-bold py-2 px-4 rounded mx-2"
           >
             Logout
           </button>
+          <a 
+          className="bg-blue-500 text-white font-bold py-2 px-4 rounded"
+          href="/"> All Events</a>
+          </>
         )}
+        </div>
       </div>
     </header>
   );
