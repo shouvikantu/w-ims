@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../firebase";
+import Header from "./Header";
+import Router from "next/router";
 
 
-const EventCreation = () => {
+
+
+const EventCreation = ({onLogout}) => {
   const [eventName, setEventName] = useState("");
   const [eventDate, setEventDate] = useState("");
   const [eventLocation, setEventLocation] = useState("");
@@ -35,8 +39,11 @@ const EventCreation = () => {
     }
   };
 
+
   return (
-    <div className="h-screen bg-cover bg-center">
+    <div>
+      <Header onLogout={() => Router.push('/')} />
+      <div className="h-screen bg-cover bg-center">
       <div className=" px-4 py-8 md:py-12 lg:py-16">
         <div className="max-w-lg mx-auto border-2 p-4 rounded-lg shadow-lg">
           <h1 className="text-2xl text-center font-bold mb-4 text-white">
@@ -108,6 +115,8 @@ const EventCreation = () => {
         </div>
       </div>
     </div>
+    </div>
+    
   );
 };
 

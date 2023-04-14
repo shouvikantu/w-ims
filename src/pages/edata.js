@@ -2,6 +2,7 @@ import { useState, useEffect } from "react" ;
 import { collection, onSnapshot } from "firebase/firestore" ;
 import { db } from "../../firebase" ;
 
+
 import Header from "@/components/Header" ;
 import EventTable from "@/components/EventTable";
 
@@ -25,7 +26,7 @@ function ShowEventData() {
 
     return (
         <>
-            <div className="bg-container2 min-h-screen rounded-lg shadow-lg">
+            <div className="bg-container min-h-screen rounded-lg shadow-lg">
                 <Header />
                 <EventTable />
             </div>

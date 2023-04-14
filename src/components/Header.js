@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-const Header = ({ user, onLogout }) => {
+const Header = ({user}) => {
   return (
     <header className="bg-transparent  text-white border-b-2">
       <div className="container mx-auto md:px-4 px-1 py-4 flex justify-between items-center">
@@ -13,28 +13,37 @@ const Header = ({ user, onLogout }) => {
         <div className="flex justify-evenly flex-3 ">
           {!user ? (
             <>
-              <button
-                onClick={onLogout}
-                className="bg-[#E4854E] hover:bg-[#301D19] text-white font-bold py-2 px-4 rounded"
-              >
-                Logout
-              </button>
+              <Link
+              href="/login"
+              className="md:px-4 mx-2 md:py-2  text-white font-semibold rounded-full p-1 text-center"
+          >
+            Staff Login
+          </Link> {console.log(user)}
               <Link
                 className="md:px-4 mx-2 md:py-2  text-white font-semibold rounded-full p-1 text-center"
-                href="/evl"
+                href="/"
               >
                 {" "}
                 All Events
               </Link>
             </>
           ) : (
+            <>
             <Link
               className="md:px-4 mx-2 md:py-2  text-white font-semibold rounded-full p-1 text-center"
               href="/login"
             >
               {" "}
-              Sign In
+              Logout
             </Link>
+             <Link
+               className="md:px-4 mx-2 md:py-2  text-white font-semibold rounded-full p-1 text-center"
+               href="/"
+             >
+               {" "}
+               All Events
+             </Link>
+           </>
           )}
         </div>
       </div>
