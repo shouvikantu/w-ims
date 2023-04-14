@@ -7,17 +7,17 @@ import EventCreation from "@/components/EventCreation";
 
 const Login = () => {
   const [user, setUser] = useState(null);
-  
-  const handleLogout = () => {
-    setUser(null);
-    localStorage.removeItem("user"); // Remove user from localStorage on logout
-  };
+
 
   useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-    }
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser(null);
+      }
+    });
+    return unsubscribe;
   }, []);
 
   const handleLogin = (userData) => {
@@ -37,7 +37,7 @@ const Login = () => {
     <>
       {user ? (
         <div className="bg-container max-h-screen">
-          <EventCreation onLogout={handleLogout} />
+          <EventCreation user={user} />
         </div>
       ) : (
         <div className="bg-cover bg-center bg-container">
