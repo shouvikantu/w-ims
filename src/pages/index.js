@@ -45,7 +45,7 @@ export default function Home({user}) {
           {events.length > 0 ? (
             <ul className="flex flex-wrap justify-center gap-6">
               {events.map((event) => (
-                <div className="bg-white bg-opacity-80">
+                <div className="bg-white bg-opacity-80" key={event.id}>
                   <li
                     key={event.id}
                     className=" rounded-lg shadow-lg p-4 w-[300px] lg:p-6 bg-gray border-2"
