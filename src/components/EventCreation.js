@@ -39,14 +39,14 @@ const EventCreation = ({ user}) => {
       <Header user={user} />
       <div className="h-screen bg-cover bg-center">
         <div className=" px-4 py-8 md:py-12 lg:py-16">
-          <div className="max-w-lg mx-auto border-2 p-4 rounded-lg shadow-lg">
-            <h1 className="text-2xl text-center font-bold mb-4 text-white">
+          <div className="max-w-lg bg-slate-500  bg-opacity-60 mx-auto border-white-2 p-4 rounded-lg ">
+            <h1 className="text-3xl text-center font-bold mb-4 text-white">
               Create a new event
             </h1>
             <form className="space-y-4">
               <div class="mb-4">
                 <label
-                  className="block text-white text-sm font-bold mb-2"
+                  className="block text-white text-md font-bold mb-2"
                   for="Event Name"
                 >
                   Event Name
@@ -61,7 +61,7 @@ const EventCreation = ({ user}) => {
                 />
               </div>
               <div>
-                <label className="block text-white text-sm font-bold mb-2">
+                <label className="block text-white text-md font-bold mb-2">
                   Date of the Event
                 </label>
                 <input
@@ -73,7 +73,7 @@ const EventCreation = ({ user}) => {
               </div>
 
               <div>
-                <label className="block text-white text-sm font-bold mb-2">
+                <label className="block text-white text-md font-bold mb-2">
                   Event Location
                 </label>
                 <input
@@ -85,7 +85,7 @@ const EventCreation = ({ user}) => {
                 />
               </div>
               <div>
-                <label className="block text-white text-sm font-bold mb-2">
+                <label className="block text-white text-md font-bold mb-2">
                   Event Description
                 </label>
                 <textarea
@@ -98,7 +98,7 @@ const EventCreation = ({ user}) => {
               <div>
                 <button
                   type="button"
-                  className=" bg-blue-500 text-white justify-end font-bold py-2 px-4 rounded"
+                  className=" bg-blue-500 text-white font-bold py-2 px-4 rounded"
                   onClick={handleSubmit}
                 >
                   Create Event
