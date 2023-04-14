@@ -30,9 +30,9 @@ const Header = ({ user }) => {
           >
             Logout
           </button>
-          <a 
+          <Link 
           className="bg-blue-500 text-white font-bold py-2 px-4 rounded"
-          href="/"> All Events</a>
+          href="/"> All Events</Link>
           </>
         )}
         </div>
