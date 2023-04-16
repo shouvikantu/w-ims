@@ -1,8 +1,15 @@
 import { auth } from "../../firebase";
 import Link from "next/link";
 import React from "react";
+import {useRouter} from 'next/router'
 
 const Header = ({ user }) => {
+  const router = useRouter();
+
+  const handleSignOut = async () => {
+   await auth.signOut();
+   router.push("/")
+  }
   return (
     <header className="bg-transparent  text-white border-b-2">
       <div className="container mx-auto md:px-4 px-1 py-4 flex justify-between items-center">
@@ -25,7 +32,7 @@ const Header = ({ user }) => {
         {user && (
           <>
           <button
-            onClick={() => auth.signOut()}
+            onClick={handleSignOut}
             className="bg-red-500 text-white font-bold py-2 px-4 rounded mx-2"
           >
             Logout
