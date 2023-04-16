@@ -5,14 +5,14 @@ getAuth, GoogleAuthProvider,
 } from "firebase/auth";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAi2syMqmCSUOFIK-mu_dqYJBAa3Au8Pck",
-    authDomain: "intramural-tms.firebaseapp.com",
-    projectId: "intramural-tms",
-    storageBucket: "intramural-tms.appspot.com",
-    messagingSenderId: "811305905269",
-    appId: "1:811305905269:web:6def0b63591e8cb5e4dc3c",
-    measurementId: "G-KZB5MRWNLW"
-  };
+  apiKey: "AIzaSyAUjHBGBIxS_DO-KzdaOiPPR06mJ-O67I0",
+  authDomain: "wu-ims.firebaseapp.com",
+  projectId: "wu-ims",
+  storageBucket: "wu-ims.appspot.com",
+  messagingSenderId: "223098381155",
+  appId: "1:223098381155:web:cda0e8f0219e2df1b1a956",
+  measurementId: "G-77YE96796E"
+};
 
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
