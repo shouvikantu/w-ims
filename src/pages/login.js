@@ -41,8 +41,8 @@ const Login = () => {
         </div>
       ) : (
         <div className="bg-cover bg-center bg-container">
-          <div className="bg-gray-800 bg-opacity-75 min-h-screen flex items-center justify-center">
-            <div className="bg-gray-300 p-8 rounded-lg shadow-lg max-w-sm w-full">
+          <div className=" min-h-screen flex items-center justify-center">
+            <div className="bg-gray-300 bg-opacity-90 p-8 rounded-lg shadow-lg max-w-sm w-full">
               <h1 className="text-3xl font-bold mb-4">Welcome</h1>
               <h2 className="text-lg font-medium mb-4">Intramural Staff</h2>
               <p className="text-gray-700 mb-4">
