@@ -29,7 +29,7 @@ export default function Home({user}) {
         <title>W-IMS</title>
         <meta
           name="description"
-          content="A tracking & Management system for Willamette University's intramural Program"
+          content="A tracking & Management system for Willamette University's intramural Program. Easy and convenient for everyone."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
