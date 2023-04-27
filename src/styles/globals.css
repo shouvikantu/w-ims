@@ -2,23 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .bg-container {
-  background-image: url("../components/assets/bg.webp");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  overflow: hidden !important;
-  max-height: screen;
-}
-/* .bg-container1 {
-  background-image: url("../components/assets/bg1.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-}
-.bg-container2 {
-  background-image: url("../components/assets/bg2.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-} */
+    background-image: url('../components/assets/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
+  .bg-container1 {
+    background-image: url('../components/assets/bg1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
+  .bg-container2 {
+    background-image: url('../components/assets/bg2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
