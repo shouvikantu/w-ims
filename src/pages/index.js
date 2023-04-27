@@ -22,7 +22,13 @@ export default function Home({ user }) {
     return () => unsubscribe();
   }, [eventsRef]);
 
-  
+  const handleDelete = async (eventId) => {
+    try {
+      await deleteDoc(doc(db, "events", eventId));
+    } catch (error) {
+      console.error("Error deleting document: ", error);
+    }
+  };
 
   return (
     <>
@@ -67,6 +73,12 @@ export default function Home({ user }) {
                         >
                           Register for this event
                         </Link>
+                      
+                       {user && (
+                         <button onClick={() => handleDelete(event.id)} >
+                         Delete Event
+                       </button>
+                       )}
                       </li>
                     </div>
                   ))}
