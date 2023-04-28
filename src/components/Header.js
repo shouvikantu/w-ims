@@ -38,6 +38,10 @@ const Header = ({ user }) => {
             Logout
           </button>
           <Link 
+          className="bg-green-500 text-white font-bold py-2 px-4 rounded mx-2"
+          href="/edata"> Registration Info</Link>
+          
+          <Link 
           className="bg-blue-500 text-white font-bold py-2 px-4 rounded"
           href="/"> All Events</Link>
           </>
