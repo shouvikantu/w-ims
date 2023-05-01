@@ -6,9 +6,13 @@ import {useRouter} from 'next/router'
 const Header = ({ user }) => {
   const router = useRouter();
 
+
   const handleSignOut = async () => {
    await auth.signOut();
    router.push("/")
+  }
+  const handleClick = () => {
+    router.push("./EventTable")
   }
   return (
     <header className="bg-transparent  text-white border-b-2">
@@ -37,9 +41,9 @@ const Header = ({ user }) => {
           >
             Logout
           </button>
-          <Link 
+          <button 
           className="bg-green-500 text-white font-bold py-2 px-4 rounded mx-2"
-          href="/edata"> Registration Info</Link>
+          onClick={handleClick}> Registration Info</button>
           
           <Link 
           className="bg-blue-500 text-white font-bold py-2 px-4 rounded"
