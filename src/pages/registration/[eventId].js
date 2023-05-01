@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { db } from "../../../firebase";
 import Header from "@/components/Header";
+import Link from "next/link";
 
 function RegisterEvent() {
   const router = useRouter();
@@ -46,7 +47,9 @@ function RegisterEvent() {
 
   return (
     <div className="bg-container h-screen">
-      <Header />
+      <Link 
+          className="bg-blue-500 text-white font-bold py-2 px-4 rounded absolute top-5 right-5 md:right-10"
+          href="/events"> All Events</Link>
       <div className=" py-6  ">
         <div className="max-w-md sm:mx-auto bg-white bg-opacity-90 rounded-md overflow-hidden shadow-md mx-2">
           <div className="py-4 px-6 bg-gray-800 text-white font-semibold uppercase tracking-wide">

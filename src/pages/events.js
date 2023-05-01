@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { collection, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase";
 import Link from "next/link";
-import { signIn } from 'next-auth/react';
+
 
 
 const EventListing = () => {
@@ -23,7 +23,8 @@ const EventListing = () => {
       return () => unsubscribe();
     }, [eventsRef]);
   return (
-    <div>
+    <div className='bg-container'>
+        <Link className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4  rounded absolute top-5 md:right-10 right-5'" href="/">Home</Link>
         <div className="md:h-screen">
         <div className=" text-center">
           <div className=" flex flex-col justify-center items-center min-h-screen rounded-lg shadow-lg">
@@ -66,10 +67,6 @@ const EventListing = () => {
                 </p>
               )}
             </div>
-            
-              <button onClick={signIn} className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4  rounded absolute top-5 md:right-10 right-5'>
-                Staff Login
-              </button>
           
             <div className="absolute bottom-0 hidden md:block ">
               <p className="text-white p-2 ">

@@ -1,19 +1,16 @@
-import { auth } from "../../firebase";
 import Link from "next/link";
 import React from "react";
-import {useRouter} from 'next/router'
+import { useRouter } from "next/router";
+import { signOut } from "next-auth/react";
 
-const Header = ({ user }) => {
+const Header = ({user}) => {
   const router = useRouter();
 
-
-  const handleSignOut = async () => {
-   await auth.signOut();
-   router.push("/")
-  }
   const handleClick = () => {
-    router.push("./EventTable")
-  }
+    router.push("/edata");
+  };
+
+  
   return (
     <header className="bg-transparent  text-white border-b-2">
       <div className="container mx-auto md:px-4 px-1 py-4 flex justify-between items-center">
@@ -23,33 +20,25 @@ const Header = ({ user }) => {
           </Link>
         </div>
         <div>
-        
-        {!user && (
-          <Link
-            href="/login"
-            className="bg-blue-500 text-white font-bold py-2 px-4 rounded"
-          >
-            Staff Login
-          </Link>
-        )}
-
-        {user && (
-          <>
+         <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onClick={signOut}>
+          Logout
+         </button>
+         
           <button
-            onClick={handleSignOut}
-            className="bg-red-500 text-white font-bold py-2 px-4 rounded mx-2"
+            className="bg-green-500 text-white font-bold py-2 px-4 rounded mx-2"
+            onClick={handleClick}
           >
-            Logout
+       
+            Registration Info
           </button>
-          <button 
-          className="bg-green-500 text-white font-bold py-2 px-4 rounded mx-2"
-          onClick={handleClick}> Registration Info</button>
+
+          <Link
+            className="bg-blue-500 text-white font-bold py-2 px-4 rounded"
+            href="/events"
+          >
           
-          <Link 
-          className="bg-blue-500 text-white font-bold py-2 px-4 rounded"
-          href="/"> All Events</Link>
-          </>
-        )}
+            All Events
+          </Link>
         </div>
       </div>
     </header>
@@ -57,3 +46,5 @@ const Header = ({ user }) => {
 };
 
 export default Header;
+
+

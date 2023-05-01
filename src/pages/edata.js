@@ -5,6 +5,8 @@ import { db } from "../../firebase" ;
 
 import Header from "@/components/Header" ;
 import EventParticipants from "@/components/EventParticipants";
+import { signOut } from "next-auth/react";
+import Link from "next/link";
 
 
 const eventsRef = collection(db, "events")
@@ -26,9 +28,9 @@ function ShowEventData() {
 
     return (
         <>
-            <div className="bg-container min-h-screen rounded-lg shadow-lg">
-                <Header />
-                <div className="px-4">
+            <div className="bg-container min-h-screen ">
+                <Link className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4  rounded absolute top-5 md:right-10 right-5'" href="/">Home</Link>
+                <div className="px-4 mt-10">
                     <h1 className="text-3xl font-bold text-white mb-4 lg:mb-6">Events Summary</h1>
                     <div className="bg-white bg-opacity-80">
                         {events.length > 0 ? (
