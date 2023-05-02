@@ -17,7 +17,7 @@ export default NextAuth({
     ],
     callbacks: {
         async signIn({ user, account, profile, email, credentials }) {
-        if(user.email === "sahmed@willamette.edu"){
+        if(user.email === "sahmed@willamette.edu" || user.email === "hcheng@willamette.edu" || user.email === "dtii@willamette.edu" || user.email === "gcallahan@willamette.edu"){
             const isAllowedToSignIn = true
             if (isAllowedToSignIn) {
                 return true
