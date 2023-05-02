@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from "react";
-import { collection, onSnapshot } from "firebase/firestore";
+import { collection, deleteDoc, doc, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase";
 import Link from "next/link";
 
@@ -21,7 +21,12 @@ const EventListing = () => {
       });
   
       return () => unsubscribe();
-    }, [eventsRef]);
+    }, []);
+
+    const handleDelete = async (id) => {
+      await deleteDoc(doc(db, "events", id));
+    }
+
   return (
     <div className='bg-container'>
         <Link className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4  rounded absolute top-5 md:right-10 right-5'" href="/">Home</Link>
@@ -56,6 +61,7 @@ const EventListing = () => {
                         >
                           Register for this event
                         </Link>
+                        <button onClick={handleDelete} className='p-2 m-2 border bg-red-400 rounded-full text-white'>X</button>
                       </li>
                      
                     </div>
