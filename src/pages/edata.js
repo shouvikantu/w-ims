@@ -1,15 +1,34 @@
 import { useState, useEffect } from "react" ;
 import { collection, onSnapshot } from "firebase/firestore" ;
 import { db } from "../../firebase" ;
+import { getSession } from "next-auth/react";
 
 
 import Header from "@/components/Header" ;
 import EventParticipants from "@/components/EventParticipants";
+import { signOut, GetSession } from "next-auth/react";
+import Link from "next/link";
 
+export async function getServerSideProps(context) {
+    const session = await getSession(context);
+    if (!session) {
+        return {
+            redirect: {
+                destination: '/',
+                permanent: false,
+            },
+        }
+    }
+    return {
+        props: {
+            user: session,
+        },
+    };
+}
 
 const eventsRef = collection(db, "events")
 
-function ShowEventData() {
+function ShowEventData({user}) {
     const [events, setEvents] = useState([])
 
     useEffect(() => {
@@ -26,9 +45,11 @@ function ShowEventData() {
 
     return (
         <>
-            <div className="bg-container min-h-screen rounded-lg shadow-lg">
-                <Header />
-                <div className="px-4">
+            <div className="bg-container min-h-screen ">
+                <div className="px-4 mt-10">
+                    <div className="py-4">
+                        <Link className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4  rounded absolute top-5 md:right-10 right-5'" href="/">Home</Link>
+                    </div>
                     <h1 className="text-3xl font-bold text-white mb-4 lg:mb-6">Events Summary</h1>
                     <div className="bg-white bg-opacity-80">
                         {events.length > 0 ? (
@@ -67,3 +88,5 @@ function ShowEventData() {
 }
 
 export default ShowEventData;
+
+
