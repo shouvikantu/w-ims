@@ -25,8 +25,8 @@ const EventParticipants = ({ ParentDocId }) => {
                     <td className="text-gray-900 mb-2 border-2 border-black p-2">
                         {participants.map((participant) => (
                             <div>
-                                <p key={participant.id}>({participant.name} ({participant.pronoun})  DOB: {participant.dob})</p>
-                                <hr className='border-black border-2'/>
+                                <p key={participant.id}>({participant.name} ({participant.pronoun}) <br />  DOB: {participant.dob})</p>
+                                <hr className='border-black order-2'/>
                             </div>
                         ))}
                     </td>
