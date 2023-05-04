@@ -25,6 +25,8 @@ const EventListing = () => {
 
     const handleDelete = async (id) => {
       await deleteDoc(doc(db, "events", id));
+
+      setEvents(events.filter((event) => event.id !== id));
     }
 
   return (
@@ -61,7 +63,7 @@ const EventListing = () => {
                         >
                           Register for this event
                         </Link>
-                        <button onClick={handleDelete} className='p-2 m-2 border bg-red-400 rounded-full text-white'>X</button>
+                        <button onClick={() => handleDelete(event.id)} className='p-2 m-2 border bg-red-400 rounded-full text-white'>X</button>
                       </li>
                      
                     </div>
