@@ -1,51 +1,30 @@
 import Head from "next/head";
-import Header from "@/components/Header";
+import EventListing from "@/components/EventListing";
+import { getSession } from "next-auth/react";
 import EventCreation from "@/components/EventCreation";
-import Login from "@/components/Login";
-import { useState, useEffect } from "react";
 
-export default function Home() {
-  const [user, setUser] = useState(null);
-
-  // Load user from localStorage on component mount
-  useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-    }
-  }, []);
-
-  const handleLogin = (userData) => {
-    setUser(userData);
-    localStorage.setItem("user", JSON.stringify(userData)); // Store user in localStorage
-  };
-
-  const handleLogout = () => {
-    setUser(null);
-    localStorage.removeItem("user"); // Remove user from localStorage on logout
-  };
+export default function Home({ user }) {
+  if (!user) {
+    return (
+    <div className="bg-container">
+      <EventListing />
+    </div>
+    )     
+  }
 
   return (
-    <>
-      <Head>
-        <title>ITS</title>
-        <meta
-          name="description"
-          content="A tracking & Management system for Willamette University's intramural Program"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <div className="text-amber-800">
-        {user ? (
-          <div>
-            <Header onLogout={handleLogout} />
-            <EventCreation />
-          </div>
-        ) : (
-          <Login onLogin={handleLogin} />
-        )}
-      </div>
-    </>
-  );
+    <div className="bg-container">
+      <EventCreation />
+    </div>
+  )
 }
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+  return {
+    props: {
+      user: session,
+    },
+  };
+}
+

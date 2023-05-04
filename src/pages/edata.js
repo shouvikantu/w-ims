@@ -1,12 +1,8 @@
 import { useState, useEffect } from "react" ;
 import { collection, onSnapshot } from "firebase/firestore" ;
 import { db } from "../../firebase" ;
-import { getSession } from "next-auth/react";
-
-
-import Header from "@/components/Header" ;
-import EventParticipants from "@/components/EventParticipants";
 import { signOut, GetSession } from "next-auth/react";
+import EventParticipants from "@/components/EventParticipants";
 import Link from "next/link";
 
 export async function getServerSideProps(context) {
@@ -38,7 +34,7 @@ function ShowEventData({user}) {
                 ...doc.data(),
             }));
             setEvents(newEvents);
-        });
+        }); 
 
         return () => eventscollection
     }, []);
@@ -46,6 +42,7 @@ function ShowEventData({user}) {
     return (
         <>
             <div className="bg-container min-h-screen ">
+
                 <div className="px-4 mt-10">
                     <div className="py-4">
                         <Link className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4  rounded absolute top-5 md:right-10 right-5'" href="/">Home</Link>
