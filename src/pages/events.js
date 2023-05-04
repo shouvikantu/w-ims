@@ -45,7 +45,7 @@ const EventListing = () => {
                     <div className="bg-white bg-opacity-80" key={event.id}>
                       <li
                         key={event.id}
-                        className=" rounded-lg shadow-lg p-4 w-[300px] lg:p-6 bg-gray border-2"
+                        className=" relative rounded-lg shadow-lg p-4 w-[300px] lg:p-6 bg-gray border-2"
                       >
                         <h2 className="text-xl font-bold text-black mb-2 ">
                           {event.eventName}
@@ -63,7 +63,7 @@ const EventListing = () => {
                         >
                           Register for this event
                         </Link>
-                        <button onClick={() => handleDelete(event.id)} className='p-2 m-2 border bg-red-400 rounded-full text-white'>X</button>
+                        <button onClick={() => handleDelete(event.id)} className='text-lg absolute right-[-20px] top-[-20px] w-8 h-8 mx-1 bg-red-600 rounded-full text-white hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-opacity-50'> x </button>
                       </li>
                      
                     </div>
