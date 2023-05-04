@@ -1,4 +1,3 @@
-import Head from "next/head";
 import EventListing from "@/components/EventListing";
 import { getSession } from "next-auth/react";
 import EventCreation from "@/components/EventCreation";

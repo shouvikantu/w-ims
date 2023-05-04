@@ -31,7 +31,6 @@ const EventListing = () => {
               <h1 className="text-3xl font-bold text-white  mb-4 lg:mb-6">
                 Upcoming Events
               </h1>
-              {console.log("Hello")}
               {events.length > 0 ? (
                 <ul className="flex flex-wrap justify-center gap-6">
                   {events.map((event) => (

@@ -34,7 +34,6 @@ function ShowEventData(session) {
       }));
       setEvents(newEvents);
     });
-    console.log(session);
     return () => eventscollection;
   }, []);
 
@@ -93,7 +92,7 @@ function ShowEventData(session) {
                       <td className="text-gray-900 mb-2 border-2 border-black p-2">
                         {event.eventDate}
                       </td>
-                      <EventParticipants ParentDocId={event.id} />
+                      <EventParticipants ParentDocId={event.id} key={event.id} />
                     </tr>
                   ))}
                 </tbody>

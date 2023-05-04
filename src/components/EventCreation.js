@@ -44,10 +44,10 @@ const EventCreation = ({ user}) => {
               Create a new event
             </h1>
             <form className="space-y-4 p-3">
-              <div class="mb-4">
+              <div className="mb-4">
                 <label
                   className="block text-white text-lg font-bold mb-2"
-                  for="Event Name"
+  
                 >
                   Event Name
                 </label>
