@@ -1,17 +1,13 @@
 import { useState, useEffect } from "react" ;
 import { collection, onSnapshot } from "firebase/firestore" ;
 import { db } from "../../firebase" ;
-
-
-import Header from "@/components/Header" ;
 import EventParticipants from "@/components/EventParticipants";
-import { signOut } from "next-auth/react";
 import Link from "next/link";
 
 
 const eventsRef = collection(db, "events")
 
-function ShowEventData() {
+function ShowEventData({user}) {
     const [events, setEvents] = useState([])
 
     useEffect(() => {
@@ -21,7 +17,7 @@ function ShowEventData() {
                 ...doc.data(),
             }));
             setEvents(newEvents);
-        });
+        }); 
 
         return () => eventscollection
     }, []);
