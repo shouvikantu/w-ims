@@ -20,12 +20,12 @@ const Header = ({user}) => {
           </Link>
         </div>
         <div>
-         <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onClick={signOut}>
+         <button className="bg-red-500 hover:bg-red-700 text-black font-bold py-2 px-4 rounded" onClick={signOut}>
           Logout
          </button>
          
           <button
-            className="bg-green-500 text-white font-bold py-2 px-4 rounded mx-2"
+            className="bg-green-500 text-black font-bold py-2 px-4 rounded mx-2"
             onClick={handleClick}
           >
        
@@ -33,7 +33,7 @@ const Header = ({user}) => {
           </button>
 
           <Link
-            className="bg-blue-500 text-white font-bold py-2 px-4 rounded"
+            className="bg-blue-600 text-white font-bold py-2 px-4 rounded"
             href="/events"
           >
           
