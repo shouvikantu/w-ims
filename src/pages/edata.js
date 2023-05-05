@@ -23,7 +23,7 @@ export async function getServerSideProps(context) {6
 }
 
 const eventsRef = collection(db, "events");
-function ShowEventData(session) {
+function ShowEventData() {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {

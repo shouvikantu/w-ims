@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { collection, deleteDoc, doc, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase";
 import Link from "next/link";
+import { getSession } from 'next-auth/react';
 
 
 
@@ -28,6 +29,7 @@ const EventListing = () => {
 
       setEvents(events.filter((event) => event.id !== id));
     }
+    
 
   return (
     <div className='bg-container'>
@@ -91,3 +93,19 @@ const EventListing = () => {
 }
 
 export default EventListing
+export async function getServerSideProps(context) {6 
+  const session = await getSession(context);
+  if (!session) {
+  return {
+    redirect: {
+      destination: "/",
+      permanent: false,
+    },
+  };
+}
+return {
+  props: {
+    user: session,
+  },
+};
+}
