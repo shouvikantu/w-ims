@@ -33,12 +33,12 @@ const EventListing = () => {
 
   return (
     <div className='bg-container'>
-        <Link className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4  rounded absolute top-5 md:right-10 right-5'" href="/">Home</Link>
+        <Link className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4  rounded absolute top-5 md:right-10 right-5" href="/">Home</Link>
         <div className="md:h-screen">
         <div className=" text-center">
           <div className=" flex flex-col justify-center items-center min-h-screen rounded-lg shadow-lg">
             <div className="px-4">
-              <h1 className="text-3xl font-bold text-white  mb-4 lg:mb-6">
+              <h1 className="text-3xl font-bold text-white  mb-4 lg:mb-6 mt-[60px] md:mt-0">
                 Upcoming Events
               </h1>
               {events.length > 0 ? (

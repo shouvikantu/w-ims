@@ -10,15 +10,8 @@
   overflow: hidden !important;
   max-height: screen;
 }
-/* .bg-container1 {
-  background-image: url("../components/assets/bg1.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
+
+.table-border{
+  border-top: 2px solid black;
+
 }
-.bg-container2 {
-  background-image: url("../components/assets/bg2.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-} */

@@ -79,7 +79,7 @@ function RegisterEvent() {
         All Events
       </Link>
       <div className=" py-6  ">
-        <div className="max-w-md sm:mx-auto bg-white bg-opacity-90 rounded-md overflow-hidden shadow-md mx-2">
+        <div className="max-w-md mt-10 md:mt-0 sm:mx-auto bg-white bg-opacity-90 rounded-md overflow-hidden shadow-md mx-2">
           <div className="py-4 px-6 bg-gray-800 text-white font-semibold uppercase tracking-wide">
             Register for Event
           </div>
