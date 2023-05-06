@@ -13,26 +13,45 @@ const EventCreation = ({ user}) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setEventName("");
-    setEventDate("");
-    setEventLocation("");
-    setEventDescription("");
-    alert("Event Successfully Created!");
-
+  
+    // Perform form validation
+    if (!eventName || !eventDate || !eventLocation || !eventDescription) {
+      alert('Please fill in all fields.');
+      return;
+    }
+  
+    const currentDate = new Date();
+    const selectedDate = new Date(eventDate);
+  
+    if (selectedDate <= currentDate) {
+      alert('Please select a future date for the event.');
+      return;
+    }
+  
+    // Validation passed, proceed with creating the event
     const eventData = {
       eventName,
       eventDate,
       eventLocation,
       eventDescription,
     };
-
+  
     try {
       await addDoc(eventsRef, eventData);
+      alert('Event successfully created!');
       // Handle success
     } catch (error) {
       // Handle error
+      console.error('Error creating event:', error);
     }
+  
+    // Reset form fields
+    setEventName('');
+    setEventDate('');
+    setEventLocation('');
+    setEventDescription('');
   };
+
 
   return (
     <div>
