@@ -15,7 +15,30 @@ function RegisterEvent() {
   const [dob, setDoB] = useState("");
 
   const handleSubmit = async (e) => {
-    console.log(eventId);
+    e.preventDefault();
+
+    // Perform form validation
+    if (!name || !email || !tel || !pronoun || !dob) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    if (!email.endsWith("@willamette.edu")) {
+      alert(
+        'Only Willamette Students and Staff can register. Please use a valid "@willamette.edu" email address.'
+      );
+      return;
+    }
+
+    const currentDate = new Date();
+    const birthDate = new Date(dob);
+    const ageDiff = currentDate.getFullYear() - birthDate.getFullYear();
+
+    if (ageDiff < 15 && ageDiff > 70) {
+      alert("Please enter a valid date of birth.");
+      return;
+    }
+
     const eventData = {
       name,
       email,
@@ -23,7 +46,6 @@ function RegisterEvent() {
       pronoun,
       dob,
     };
-    e.preventDefault();
 
     try {
       // Create a reference to the event document
@@ -33,7 +55,7 @@ function RegisterEvent() {
       const subcollectionRef = collection(eventRef, "registrations");
 
       // Add the registration data to the subcollection
-      await addDoc(subcollectionRef, { name, email, tel, pronoun, dob });
+      await addDoc(subcollectionRef, eventData);
       alert("Registration successful!");
       setName("");
       setEmail("");
@@ -42,14 +64,19 @@ function RegisterEvent() {
       setPronoun("");
     } catch (error) {
       alert("Registration failed. Refresh the page & Please try again.");
+      console.error("Error registering for the event:", error);
     }
   };
 
   return (
     <div className="bg-container h-screen">
-      <Link 
-          className="bg-blue-500 text-white font-bold py-2 px-4 rounded absolute top-5 right-5 md:right-10"
-          href="/events"> All Events</Link>
+      <Link
+        className="bg-blue-500 text-white font-bold py-2 px-4 rounded absolute top-5 right-5 md:right-10"
+        href="/events"
+      >
+        {" "}
+        All Events
+      </Link>
       <div className=" py-6  ">
         <div className="max-w-md sm:mx-auto bg-white bg-opacity-90 rounded-md overflow-hidden shadow-md mx-2">
           <div className="py-4 px-6 bg-gray-800 text-white font-semibold uppercase tracking-wide">
