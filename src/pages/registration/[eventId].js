@@ -62,6 +62,7 @@ function RegisterEvent() {
       setTel("");
       setDoB("");
       setPronoun("");
+      router.push('/success');
     } catch (error) {
       alert("Registration failed. Refresh the page & Please try again.");
       console.error("Error registering for the event:", error);
