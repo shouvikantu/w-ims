@@ -34,7 +34,7 @@ function RegisterEvent() {
     const birthDate = new Date(dob);
     const ageDiff = currentDate.getFullYear() - birthDate.getFullYear();
 
-    if (ageDiff < 15 && ageDiff > 70) {
+    if (ageDiff < 15 || ageDiff > 70) {
       alert("Please enter a valid date of birth.");
       return;
     }
@@ -56,13 +56,7 @@ function RegisterEvent() {
 
       // Add the registration data to the subcollection
       await addDoc(subcollectionRef, eventData);
-      alert("Registration successful!");
-      setName("");
-      setEmail("");
-      setTel("");
-      setDoB("");
-      setPronoun("");
-      router.push('/success');
+      router.push("/success");
     } catch (error) {
       alert("Registration failed. Refresh the page & Please try again.");
       console.error("Error registering for the event:", error);
@@ -128,15 +122,20 @@ function RegisterEvent() {
                 <label className="block text-gray-700 font-semibold mb-2">
                   Pronouns
                 </label>
-                <input
-                  type="text"
+                <select
                   value={pronoun}
                   onChange={(e) => setPronoun(e.target.value)}
                   className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  placeholder="Pronoun"
                   required
-                />
+                >
+                  <option value="">Select Pronoun</option>
+                  <option value="he/him">He/Him</option>
+                  <option value="she/her">She/Her</option>
+                  <option value="they/them">They/Them</option>
+                  <option value="other">Other</option>
+                </select>
               </div>
+
               <div className="mb-4">
                 <label className="block text-gray-700 font-semibold mb-2">
                   Date of Birth
