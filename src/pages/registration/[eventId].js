@@ -2,8 +2,10 @@ import { addDoc, collection, doc } from "firebase/firestore";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { db } from "../../../firebase";
-import Header from "@/components/Header";
 import Link from "next/link";
+import axios from "axios";
+import { TextEncoder } from "text-encoding-utf-8";
+
 
 function RegisterEvent() {
   const router = useRouter();
@@ -56,6 +58,16 @@ function RegisterEvent() {
 
       // Add the registration data to the subcollection
       await addDoc(subcollectionRef, eventData);
+      const text = "Thank you for registering for the event!"
+      const encoder = new TextEncoder();
+      const emailText = encoder.encode(text);
+      // Send an email to the registrant
+      await axios.post("../api/email/emailUtil", {
+        recipientEmail: email,
+        subject: "Registration Confirmation",
+        text: emailText,
+      });
+
       router.push("/success");
     } catch (error) {
       alert("Registration failed. Refresh the page & Please try again.");
@@ -69,7 +81,6 @@ function RegisterEvent() {
         className="bg-blue-500 text-white font-bold py-2 px-4 rounded absolute top-5 right-5 md:right-10"
         href="/events"
       >
-        {" "}
         All Events
       </Link>
       <div className=" py-6  ">
