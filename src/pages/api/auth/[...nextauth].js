@@ -1,12 +1,6 @@
 import NextAuth from "next-auth/next";
 import GoogleProvider from "next-auth/providers/google";
 
-const allowedEmails = [
-
-    'sahmed@willamette.edu',
-
-    // ... more email addresses
-  ];
 
 export default NextAuth({ 
     providers: [
@@ -22,10 +16,7 @@ export default NextAuth({
             if (isAllowedToSignIn) {
                 return true
               } else {
-                // Return false to display a default error message
                 return alert("Unauthorized")
-                // Or you can return a URL to redirect to:
-                // return '/unauthorized'
               }
         }
           
