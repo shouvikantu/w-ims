@@ -1,4 +1,4 @@
-## General Notes/ Best practices
+## General Notes/ Best practices for developers
 
 You can find how to start and run the program from the text below. Let's not put anything in the index.js file but just the components. If you look at the components folder, you'll see I made a Header.js file and I've added it to the index.js file. This makes organizing way easier and the code looks cleaner as well. 
 
