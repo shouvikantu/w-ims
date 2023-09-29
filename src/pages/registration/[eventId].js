@@ -4,8 +4,6 @@ import { useState } from "react";
 import { db } from "../../../firebase";
 import Link from "next/link";
 
-
-
 function RegisterEvent() {
   const router = useRouter();
   const { eventId } = router.query;
@@ -14,6 +12,7 @@ function RegisterEvent() {
   const [tel, setTel] = useState("");
   const [pronoun, setPronoun] = useState("");
   const [dob, setDoB] = useState("");
+  const [teamMembers, setTeamMembers] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,12 +23,12 @@ function RegisterEvent() {
       return;
     }
 
-    if (!email.endsWith("@willamette.edu")) {
-      alert(
-        'Only Willamette Students and Staff can register. Please use a valid "@willamette.edu" email address.'
-      );
-      return;
-    }
+    // if (!email.endsWith("@willamette.edu")) {
+    //   alert(
+    //     'Only Willamette Students and Staff can register. Please use a valid "@willamette.edu" email address.'
+    //   );
+    //   return;
+    // }
 
     const currentDate = new Date();
     const birthDate = new Date(dob);
@@ -46,6 +45,7 @@ function RegisterEvent() {
       tel,
       pronoun,
       dob,
+      teamMembers,
     };
 
     try {
@@ -57,7 +57,7 @@ function RegisterEvent() {
 
       // Add the registration data to the subcollection
       await addDoc(subcollectionRef, eventData);
-    
+
       router.push("/success");
     } catch (error) {
       alert("Registration failed. Refresh the page & Please try again.");
@@ -148,6 +148,22 @@ function RegisterEvent() {
                   className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   placeholder="(mm/dd/year)"
                   required
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block text-gray-700 font-semibold mb-2">
+                  Team Members
+                </label>
+                <input
+                  className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  type="text"
+                  value={teamMembers.join(", ")}
+                  onChange={(e) =>
+                    setTeamMembers(
+                      e.target.value.split(",").map((name) => name.trim())
+                    )
+                  }
+                  placeholder="Enter team member names separated by commas"
                 />
               </div>
               <div className="flex justify-center">
